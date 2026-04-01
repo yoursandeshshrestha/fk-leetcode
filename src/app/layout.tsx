@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
+import { Tahoma } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import PageLines from "@/components/PageLines";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Tahoma is the quintessential Windows 2000 system font
+const tahoma = Tahoma({
+  variable: "--font-tahoma",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -35,13 +36,12 @@ export default function RootLayout({
 }>) {
   return (
     <html
-    suppressHydrationWarning
+      suppressHydrationWarning
       lang="en"
-      className={`${geistMono.variable} antialiased`}
+      className={`${tahoma.variable}`}
     >
-      <body className="flex flex-col w-full max-w-[100vw] overflow-x-hidden">
+      <body className="flex flex-col w-full max-w-[100vw] overflow-x-hidden font-sans bg-[#d4d0c8]">
         <ThemeProvider>
-          <PageLines />
           <Header />
           {children}
           <Footer />

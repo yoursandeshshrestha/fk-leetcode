@@ -1,6 +1,5 @@
 'use client';
 
-import FullWidthBorder from './ui/FullWidthBorder';
 import { DIFFICULTY_COLORS } from '@/lib/constants';
 import { courseCategories } from '@/data/courses';
 
@@ -9,89 +8,162 @@ export default function Courses() {
     return DIFFICULTY_COLORS[difficulty];
   };
 
+  const getDifficultyLabel = (difficulty: 'easy' | 'medium' | 'hard') => {
+    const map = { easy: '&#9679; Easy', medium: '&#9679; Medium', hard: '&#9679; Hard' };
+    return map[difficulty];
+  };
+
+  const getDifficultyTextColor = (difficulty: 'easy' | 'medium' | 'hard') => {
+    const map = { easy: '#008000', medium: '#cc8800', hard: '#cc0000' };
+    return map[difficulty];
+  };
+
   return (
-    <section className="relative w-full pb-12 md:pb-20">
-      <div className="relative w-full max-w-[1280px] mx-auto px-4 md:px-10">
-        {/* Section Heading */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-foreground text-3xl md:text-4xl font-bold mb-3 md:mb-4">Courses</h2>
-          <p className="text-(--text-secondary) text-base md:text-lg px-4">
-            Structured learning paths from fundamentals to advanced topics.
-          </p>
+    <section className="w-full px-4 md:px-6 pb-4 font-sans bg-[#d4d0c8]">
+      {/* Win2000 Window */}
+      <div
+        className="w-full max-w-5xl mx-auto"
+        style={{
+          borderStyle: 'solid', borderWidth: '2px',
+          borderTopColor: '#ffffff', borderLeftColor: '#ffffff',
+          borderRightColor: '#404040', borderBottomColor: '#404040',
+        }}
+      >
+        {/* Title Bar */}
+        <div className="win-titlebar">
+          <span className="text-[10px]">&#128218;</span>
+          <span className="font-bold text-[11px] flex-1">Course Catalog - NeetCode Learning Suite</span>
+          <div className="flex items-center gap-1">
+            <button aria-label="Minimize" className="w-[16px] h-[14px] bg-[#d4d0c8] text-black text-[10px] flex items-center justify-center"
+              style={{ borderStyle: 'solid', borderWidth: '2px', borderTopColor: '#ffffff', borderLeftColor: '#ffffff', borderRightColor: '#404040', borderBottomColor: '#404040' }}>
+              <span className="mb-1">_</span>
+            </button>
+            <button aria-label="Maximize" className="w-[16px] h-[14px] bg-[#d4d0c8] text-black text-[9px] flex items-center justify-center"
+              style={{ borderStyle: 'solid', borderWidth: '2px', borderTopColor: '#ffffff', borderLeftColor: '#ffffff', borderRightColor: '#404040', borderBottomColor: '#404040' }}>
+              <span>&#9635;</span>
+            </button>
+            <button aria-label="Close" className="w-[16px] h-[14px] bg-[#d4d0c8] text-black text-[11px] flex items-center justify-center"
+              style={{ borderStyle: 'solid', borderWidth: '2px', borderTopColor: '#ffffff', borderLeftColor: '#ffffff', borderRightColor: '#404040', borderBottomColor: '#404040' }}>
+              <span>&#x2715;</span>
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* Content Grid */}
-      <div className="relative w-full max-w-[1280px] mx-auto">
-        <div className="relative md:-mx-6 border-t border-border">
-          {courseCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="relative flex flex-col lg:flex-row border-b border-border">
-              {/* Left: Category Description - 30% */}
-              <div className="w-full lg:w-[30%] p-6 md:p-8 flex flex-col gap-3 md:gap-4">
-                <h3 className="text-foreground text-xl md:text-2xl font-semibold">
-                  {category.title}
-                </h3>
-                <p className="text-(--text-secondary) text-sm md:text-base leading-relaxed">
-                  {category.description}
-                </p>
+        {/* Toolbar */}
+        <div className="win-menubar px-1 gap-1 flex-wrap">
+          {['All Courses', 'DSA', 'System Design', 'Python', 'Full Stack', 'OOD'].map(tab => (
+            <button key={tab} className="win-btn text-[11px] py-0.5 px-3">
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* Main content - two-panel layout */}
+        <div className="flex gap-0" style={{ minHeight: '420px' }}>
+          {/* Left: Category tree */}
+          <div
+            className="w-[180px] shrink-0 bg-white overflow-y-auto"
+            style={{
+              borderStyle: 'solid', borderWidth: '1px',
+              borderTopColor: '#808080', borderLeftColor: '#808080',
+              borderRightColor: '#ffffff', borderBottomColor: '#ffffff',
+            }}
+          >
+            <div
+              className="px-2 py-1 text-[11px] font-bold text-white"
+              style={{ background: '#0a246a' }}
+            >
+              Categories
+            </div>
+            {courseCategories.map((cat, i) => (
+              <div
+                key={i}
+                className="px-2 py-1 text-[11px] cursor-pointer border-b border-[#e8e8e8] flex items-center gap-1 hover:bg-[#316ac5] hover:text-white"
+              >
+                <span>&#128193;</span>
+                <span className="leading-tight">{cat.title}</span>
+                <span className="ml-auto text-[10px] text-[#808080]">({cat.courses.length})</span>
               </div>
+            ))}
+          </div>
 
-              {/* Right: Courses - 70% */}
-              <div className={`w-full lg:w-[70%] ${category.title === 'Python' ? 'grid grid-cols-1 sm:grid-cols-2' : 'flex flex-col sm:flex-row'}`}>
-                {category.courses.map((course, courseIndex) => {
-                  const isPython = category.title === 'Python';
-                  const isFirstRow = isPython && courseIndex < 2;
-                  return (
+          {/* Right: Courses grid */}
+          <div className="flex-1 p-2 overflow-y-auto bg-[#d4d0c8]">
+            <p className="text-[11px] mb-2 text-[#444]">
+              Structured learning paths from fundamentals to advanced topics.
+              Double-click a course to open it.
+            </p>
+
+            {courseCategories.map((category, catIdx) => (
+              <div key={catIdx} className="mb-3">
+                {/* Category header */}
+                <div
+                  className="px-2 py-1 text-[11px] font-bold text-white mb-1 flex items-center gap-1"
+                  style={{ background: '#0058b4' }}
+                >
+                  <span>&#128218;</span>
+                  <span>{category.title}</span>
+                </div>
+                <p className="text-[10px] text-[#444] mb-2 px-1">{category.description}</p>
+
+                {/* Courses as icon grid */}
+                <div className="flex flex-wrap gap-2 px-1">
+                  {category.courses.map((course, courseIdx) => (
                     <div
-                      key={courseIndex}
-                      className={`border-l border-border p-6 md:p-8 flex flex-col gap-3 md:gap-4 cursor-pointer ${
-                        isPython
-                          ? (isFirstRow ? 'border-b' : '')
-                          : 'flex-1'
-                      }`}
+                      key={courseIdx}
+                      className="w-[180px] bg-[#d4d0c8] cursor-pointer hover:bg-[#316ac5] hover:text-white group"
+                      style={{
+                        borderStyle: 'solid', borderWidth: '1px',
+                        borderTopColor: '#ffffff', borderLeftColor: '#ffffff',
+                        borderRightColor: '#808080', borderBottomColor: '#808080',
+                      }}
                     >
-                    {/* Course Image */}
-                    <div className="w-full aspect-video overflow-hidden rounded-lg">
-                      <img
-                        src={course.image}
-                        alt={course.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-
-                    {/* Course Content */}
-                    <div className="flex flex-col gap-2 md:gap-3">
-                      <h3 className="text-foreground text-lg md:text-xl font-semibold">
-                        {course.title}
-                      </h3>
-                      <p className="text-(--text-secondary) text-sm md:text-base leading-relaxed">
-                        {course.description}
-                      </p>
-
-                      {/* Duration and Difficulty */}
-                      {(course.duration || course.difficulty) && (
-                        <div className="flex items-center gap-4 text-sm">
+                      {/* Course thumbnail */}
+                      <div className="w-full aspect-video overflow-hidden"
+                        style={{ borderBottom: '1px solid #808080' }}>
+                        <img
+                          src={course.image}
+                          alt={course.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="p-1.5">
+                        <p className="text-[11px] font-bold leading-tight mb-1">{course.title}</p>
+                        <p className="text-[10px] leading-tight text-[#444] group-hover:text-white mb-1">
+                          {course.description}
+                        </p>
+                        <div className="flex items-center gap-2 text-[10px]">
                           {course.duration && (
-                            <span className="text-(--text-secondary)">{course.duration}</span>
+                            <span className="text-[#808080] group-hover:text-white">
+                              &#9201; {course.duration}
+                            </span>
                           )}
                           {course.difficulty && (
-                            <span className={getDifficultyColor(course.difficulty)}>
-                              {course.difficulty}
+                            <span style={{ color: getDifficultyTextColor(course.difficulty) }}
+                              className="font-bold group-hover:text-white">
+                              &#9679; {course.difficulty}
                             </span>
                           )}
                         </div>
-                      )}
+                      </div>
                     </div>
-                  </div>
-                  );
-                })}
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Status bar */}
+        <div className="win-statusbar">
+          <div className="win-statusbar-panel flex-1">
+            {courseCategories.reduce((acc, c) => acc + c.courses.length, 0)} courses available
+          </div>
+          <div className="win-statusbar-panel px-4">Free &amp; Pro tiers</div>
         </div>
       </div>
 
-      <FullWidthBorder />
+      <div className="mt-4 win-separator" />
     </section>
   );
 }

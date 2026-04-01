@@ -8,7 +8,7 @@ import Founder from "@/components/Founder";
 
 export default function Home() {
   return (
-    <main className="flex-1 w-full">
+    <main className="w-full bg-[#d4d0c8]">
       <Hero />
       <Showcase />
       <LogoMarquee />
