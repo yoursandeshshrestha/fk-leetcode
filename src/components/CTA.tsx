@@ -1,94 +1,152 @@
 'use client';
 
-import FullWidthBorder from './ui/FullWidthBorder';
-
 export default function CTA() {
   return (
-    <section className="relative w-full pb-12 md:pb-20 -mt-12 md:-mt-20">
-      <div className="relative w-full max-w-[1280px] mx-auto">
-        {/* Bordered Container */}
-        <div className="relative md:-mx-6">
-          <div className="relative flex flex-col lg:flex-row">
-            {/* Left: Heading & Features - 50% */}
-            <div className="w-full lg:w-1/2 p-6 md:p-12 lg:border-r border-border">
-              <h2 className="text-foreground text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">
-                Start Practicing for Free - and hating leetcode is must.
-              </h2>
-              <p className="text-(--text-secondary) text-base md:text-lg mb-6 md:mb-8">
-                The best resources for coding interviews. Period.
-              </p>
+    <section className="w-full px-4 md:px-6 pb-4 font-sans bg-[#d4d0c8]">
+      {/* Win2000 Dialog box style CTA */}
+      <div
+        className="w-full max-w-5xl mx-auto"
+        style={{
+          borderStyle: 'solid', borderWidth: '2px',
+          borderTopColor: '#ffffff', borderLeftColor: '#ffffff',
+          borderRightColor: '#404040', borderBottomColor: '#404040',
+        }}
+      >
+        {/* Title Bar */}
+        <div className="win-titlebar">
+          <span className="text-[10px]">&#9888;</span>
+          <span className="font-bold text-[11px] flex-1">NeetCode Setup - License Agreement</span>
+          <div className="flex items-center gap-1">
+            <button aria-label="Close" className="w-[16px] h-[14px] bg-[#d4d0c8] text-black text-[11px] flex items-center justify-center"
+              style={{ borderStyle: 'solid', borderWidth: '2px', borderTopColor: '#ffffff', borderLeftColor: '#ffffff', borderRightColor: '#404040', borderBottomColor: '#404040' }}>
+              <span>&#x2715;</span>
+            </button>
+          </div>
+        </div>
 
-              {/* Features List */}
-              <div className="flex flex-col gap-3 md:gap-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#fe5303] mt-2 shrink-0" />
-                  <p className="text-(--text-secondary) text-sm md:text-base">
-                    Organized study plans: Blind 75, NeetCode 150, NeetCode 250
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#fe5303] mt-2 shrink-0" />
-                  <p className="text-(--text-secondary) text-base">
-                    Detailed video explanations for every problem
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#fe5303] mt-2 shrink-0" />
-                  <p className="text-(--text-secondary) text-base">
-                    Track your progress and stay motivated
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#fe5303] mt-2 shrink-0" />
-                  <p className="text-(--text-secondary) text-base">
-                    Join our public Discord community
-                  </p>
-                </div>
+        {/* Dialog content */}
+        <div className="p-4 flex flex-col lg:flex-row gap-4">
+          {/* Left: text block */}
+          <div className="flex-1">
+            <div className="flex items-start gap-3 mb-4">
+              <div
+                className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0"
+                style={{
+                  borderStyle: 'solid', borderWidth: '2px',
+                  borderTopColor: '#808080', borderLeftColor: '#808080',
+                  borderRightColor: '#ffffff', borderBottomColor: '#ffffff',
+                }}
+              >
+                <span style={{ fontSize: '24px' }}>&#9888;</span>
+              </div>
+              <div>
+                <h2 className="text-[16px] font-bold text-black leading-tight mb-1">
+                  Start Practicing for Free
+                </h2>
+                <p className="text-[11px] text-[#444] leading-relaxed">
+                  The best resources for coding interviews. Period.
+                  Hating leetcode is mandatory.
+                </p>
               </div>
             </div>
 
-            {/* Right: CTA Buttons - 50% */}
-            <div className="w-full lg:w-1/2 p-6 md:p-12 flex flex-col items-center justify-center gap-4 md:gap-6 border-t lg:border-t-0 border-border">
-              <button className="w-full max-w-md inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-br from-orange-400 to-orange-600 px-6 py-2.5 md:py-3 text-sm md:text-base font-semibold text-foreground ring-2 ring-[#fe5303]/50 ring-offset-2 ring-offset-background transition-all hover:scale-[1.02] hover:ring-transparent active:scale-[0.98] active:ring-[#fe5303]/70 cursor-pointer group">
-                Start Practicing
-                <svg
-                  className="w-5 h-5 transition-transform group-hover:translate-x-0.5"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M10 5l5 5-5 5" />
-                </svg>
-              </button>
-              <div className="w-full max-w-md flex flex-col sm:flex-row gap-3 md:gap-4">
-                <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-(--card-bg) px-4 md:px-6 py-2.5 md:py-3 text-sm md:text-base font-semibold text-foreground ring-2 ring-border ring-offset-2 ring-offset-background transition-all hover:scale-[1.02] hover:bg-(--card-bg) hover:ring-transparent active:scale-[0.98] active:ring-border cursor-pointer group">
-                  View Roadmap
-                  <svg
-                    className="w-5 h-5 transition-transform group-hover:translate-x-0.5"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M10 5l5 5-5 5" />
-                  </svg>
-                </button>
-                <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-(--card-bg) px-4 md:px-6 py-2.5 md:py-3 text-sm md:text-base font-semibold text-foreground ring-2 ring-border ring-offset-2 ring-offset-background transition-all hover:scale-[1.02] hover:bg-(--card-bg) hover:ring-transparent active:scale-[0.98] active:ring-border cursor-pointer group">
-                  Join Discord
-                  <img src="/discord.svg" alt="Discord" className="w-4 h-4 md:w-5 md:h-5" />
-                </button>
-              </div>
+            {/* License text area */}
+            <div
+              className="bg-white p-3 text-[11px] mb-3"
+              style={{
+                borderStyle: 'solid', borderWidth: '2px',
+                borderTopColor: '#808080', borderLeftColor: '#808080',
+                borderRightColor: '#ffffff', borderBottomColor: '#ffffff',
+                height: '140px', overflowY: 'auto',
+                fontFamily: 'Courier New, monospace',
+              }}
+            >
+              <p className="font-bold mb-2">NEETCODE END-USER LICENSE AGREEMENT</p>
+              <p className="mb-1">By using NeetCode you agree to:</p>
+              <p className="ml-2">1. Organized study plans: Blind 75, NeetCode 150, NeetCode 250</p>
+              <p className="ml-2">2. Detailed video explanations for every problem</p>
+              <p className="ml-2">3. Track your progress and stay motivated</p>
+              <p className="ml-2">4. Join our public Discord community</p>
+              <p className="ml-2">5. Never give up on your dream job</p>
+              <p className="mt-2 text-[#808080]">
+                This software is provided &quot;as is&quot; without warranty. NeetCode is not responsible
+                for any failed interviews caused by insufficient practice or leetcode rage-quitting.
+              </p>
+            </div>
+
+            {/* Checkbox acceptance */}
+            <div className="flex items-center gap-2 mb-3">
+              <input
+                type="checkbox"
+                id="accept-terms"
+                className="w-3 h-3 cursor-pointer"
+                style={{ accentColor: '#0058b4' }}
+              />
+              <label htmlFor="accept-terms" className="text-[11px] cursor-pointer">
+                I accept the terms in the License Agreement
+              </label>
             </div>
           </div>
+
+          {/* Vertical separator */}
+          <div className="hidden lg:block w-px bg-[#808080]" />
+
+          {/* Right: buttons */}
+          <div className="flex flex-col items-center justify-center gap-3 lg:w-[200px]">
+            <button
+              className="win-btn-primary w-full text-[11px] py-2 text-center"
+              onClick={() => window.location.href = '/practice'}
+            >
+              &gt; Start Practicing
+            </button>
+            <button
+              className="win-btn w-full text-[11px] py-2 text-center"
+              onClick={() => window.location.href = '/roadmap'}
+            >
+              View Roadmap
+            </button>
+            <button
+              className="win-btn w-full text-[11px] py-2 text-center"
+              onClick={() => window.location.href = '/discord'}
+            >
+              Join Discord
+            </button>
+            <div className="win-separator w-full" />
+            <button className="win-btn w-full text-[11px] py-1.5">
+              Cancel
+            </button>
+            <button className="win-btn w-full text-[11px] py-1.5">
+              Back
+            </button>
+          </div>
+        </div>
+
+        {/* Progress indicator at bottom */}
+        <div
+          className="px-4 py-2 flex items-center gap-2 border-t border-[#808080]"
+          style={{ background: '#d4d0c8' }}
+        >
+          <span className="text-[11px]">Setup progress:</span>
+          <div
+            className="flex-1 h-4 bg-white"
+            style={{
+              borderStyle: 'solid', borderWidth: '1px',
+              borderTopColor: '#808080', borderLeftColor: '#808080',
+              borderRightColor: '#ffffff', borderBottomColor: '#ffffff',
+            }}
+          >
+            <div
+              className="h-full bg-[#316ac5] flex items-center justify-end pr-1"
+              style={{ width: '30%' }}
+            >
+              <span className="text-white text-[9px]">30%</span>
+            </div>
+          </div>
+          <span className="text-[11px] text-[#444]">Step 1 of 3</span>
         </div>
       </div>
 
-      <FullWidthBorder />
+      <div className="mt-4 win-separator" />
     </section>
   );
 }
