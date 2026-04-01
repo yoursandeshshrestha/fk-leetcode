@@ -10,12 +10,12 @@ export default function Courses() {
   };
 
   return (
-    <section className="relative w-full pb-20">
-      <div className="relative w-full max-w-[1280px] mx-auto px-10">
+    <section className="relative w-full pb-12 md:pb-20">
+      <div className="relative w-full max-w-[1280px] mx-auto px-4 md:px-10">
         {/* Section Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-foreground text-4xl font-bold mb-4">Courses</h2>
-          <p className="text-(--text-secondary) text-lg">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-foreground text-3xl md:text-4xl font-bold mb-3 md:mb-4">Courses</h2>
+          <p className="text-(--text-secondary) text-base md:text-lg px-4">
             Structured learning paths from fundamentals to advanced topics.
           </p>
         </div>
@@ -23,35 +23,35 @@ export default function Courses() {
 
       {/* Content Grid */}
       <div className="relative w-full max-w-[1280px] mx-auto">
-        <div className="relative -mx-6 border-t border-border">
+        <div className="relative md:-mx-6 border-t border-border">
           {courseCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="relative flex border-b border-border">
+            <div key={categoryIndex} className="relative flex flex-col lg:flex-row border-b border-border">
               {/* Left: Category Description - 30% */}
-              <div className="w-[30%] p-8 flex flex-col gap-4">
-                <h3 className="text-foreground text-2xl font-semibold">
+              <div className="w-full lg:w-[30%] p-6 md:p-8 flex flex-col gap-3 md:gap-4">
+                <h3 className="text-foreground text-xl md:text-2xl font-semibold">
                   {category.title}
                 </h3>
-                <p className="text-(--text-secondary) text-base leading-relaxed">
+                <p className="text-(--text-secondary) text-sm md:text-base leading-relaxed">
                   {category.description}
                 </p>
               </div>
 
               {/* Right: Courses - 70% */}
-              <div className={`w-[70%] ${category.title === 'Python' ? 'grid grid-cols-2' : 'flex'}`}>
+              <div className={`w-full lg:w-[70%] ${category.title === 'Python' ? 'grid grid-cols-1 sm:grid-cols-2' : 'flex flex-col sm:flex-row'}`}>
                 {category.courses.map((course, courseIndex) => {
                   const isPython = category.title === 'Python';
                   const isFirstRow = isPython && courseIndex < 2;
                   return (
                     <div
                       key={courseIndex}
-                      className={`border-l p-8 flex flex-col gap-4 cursor-pointer ${
+                      className={`border-l border-border p-6 md:p-8 flex flex-col gap-3 md:gap-4 cursor-pointer ${
                         isPython
-                          ? (isFirstRow ? 'border-b border-border' : 'border-border')
-                          : 'flex-1 border-border'
+                          ? (isFirstRow ? 'border-b' : '')
+                          : 'flex-1'
                       }`}
                     >
                     {/* Course Image */}
-                    <div className="w-full aspect-video overflow-hidden">
+                    <div className="w-full aspect-video overflow-hidden rounded-lg">
                       <img
                         src={course.image}
                         alt={course.title}
@@ -60,11 +60,11 @@ export default function Courses() {
                     </div>
 
                     {/* Course Content */}
-                    <div className="flex flex-col gap-3">
-                      <h3 className="text-foreground text-xl font-semibold">
+                    <div className="flex flex-col gap-2 md:gap-3">
+                      <h3 className="text-foreground text-lg md:text-xl font-semibold">
                         {course.title}
                       </h3>
-                      <p className="text-(--text-secondary) text-base leading-relaxed">
+                      <p className="text-(--text-secondary) text-sm md:text-base leading-relaxed">
                         {course.description}
                       </p>
 

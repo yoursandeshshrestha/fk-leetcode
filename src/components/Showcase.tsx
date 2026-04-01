@@ -3,21 +3,21 @@ import FullWidthBorder from './ui/FullWidthBorder';
 
 export default function Showcase() {
   return (
-    <section className="relative w-full">
+    <section className="relative w-full px-4 md:px-0 hidden md:block">
       <div className="relative w-full max-w-[1280px] mx-auto">
         {/* Background decorative image */}
-        <div className="absolute -left-6 -right-6 top-[100px] -bottom-20 -z-10">
+        <div className="absolute -left-6 -right-6 top-[60px] md:top-[100px] -bottom-12 md:-bottom-20 -z-10">
           <img
             src="/hero.png"
             loading="lazy"
             alt=""
-            className="w-full h-full object-cover opacity-50"
+            className="w-full h-full object-cover opacity-30 md:opacity-50"
           />
         </div>
 
         {/* Main Container with Roadmap */}
         <div className="relative max-w-5xl mx-auto">
-          <div className="relative aspect-video rounded-lg bg-background border border-border z-0">
+          <div className="relative aspect-video rounded-lg bg-background border border-border z-0 overflow-hidden">
             {/* Top Left Corner */}
             <div className="absolute -top-px -left-px -z-1">
               <div className="relative">

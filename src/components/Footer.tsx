@@ -3,9 +3,9 @@
 export default function Footer() {
   return (
     <footer className="relative w-full bg-background">
-      <div className="relative w-full max-w-[1280px] mx-auto px-10 pb-16">
+      <div className="relative w-full max-w-[1280px] mx-auto px-6 md:px-10 pb-12 md:pb-16">
         {/* Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
           {/* Links */}
           <div>
             <h3 className="text-foreground font-semibold mb-4">Links</h3>
@@ -93,7 +93,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className=" pt-8">
+        <div className="border-t border-border pt-8">
           <p className="text-(--text-secondary) text-sm text-center">
             Copyright © 2026 neetcode.io All rights reserved.
           </p>

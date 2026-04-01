@@ -5,14 +5,14 @@ import { testimonials } from '@/data/testimonials';
 
 export default function Testimonials() {
   return (
-    <section className="relative w-full py-20">
-      <div className="relative w-full max-w-[1280px] mx-auto px-10">
+    <section className="relative w-full py-12 md:py-20">
+      <div className="relative w-full max-w-[1280px] mx-auto px-4 md:px-10">
         {/* Section Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-foreground text-4xl font-bold mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-foreground text-3xl md:text-4xl font-bold mb-3 md:mb-4">
             Success Stories
           </h2>
-          <p className="text-(--text-secondary) text-lg">
+          <p className="text-(--text-secondary) text-base md:text-lg px-4">
             See how NeetCode helped engineers land their dream jobs
           </p>
         </div>
@@ -20,14 +20,14 @@ export default function Testimonials() {
 
       <div className="relative w-full max-w-[1280px] mx-auto">
         {/* Testimonials Grid with Borders */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -mx-6 border-t border-border">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:-mx-6 border-t border-border">
           {testimonials.map((testimonial, index) => {
             const isLeftColumn = index % 3 === 0;
             const isBottomRow = index >= 3;
             return (
               <div
                 key={index}
-                className={`p-8 flex flex-col gap-4 ${!isLeftColumn ? 'border-l' : ''} ${!isBottomRow ? 'border-b' : ''} border-border`}
+                className={`p-6 md:p-8 flex flex-col gap-3 md:gap-4 border-b md:border-b-0 ${!isLeftColumn ? 'md:border-l' : ''} ${!isBottomRow ? 'md:border-b' : ''} border-border last:border-b-0`}
               >
               {/* User Image or Initials */}
               <div className="w-12 h-12 rounded-full shrink-0 flex items-center justify-center bg-[#fe5303]/20 border border-[#fe5303]/50">

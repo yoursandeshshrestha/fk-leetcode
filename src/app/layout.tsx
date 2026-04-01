@@ -32,9 +32,9 @@ export default function RootLayout({
     <html
     suppressHydrationWarning
       lang="en"
-      className={`${geistMono.variable} h-full antialiased overscroll-none`}
+      className={`${geistMono.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col relative overscroll-none">
+      <body className="flex flex-col w-full max-w-[100vw] overflow-x-hidden">
         <ThemeProvider>
           <PageLines />
           <Header />

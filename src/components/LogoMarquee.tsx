@@ -17,11 +17,11 @@ export default function LogoMarquee() {
   ];
 
   return (
-    <section className="relative w-full pt-13 pb-8">
-      <div className="relative w-full max-w-[1280px] mx-auto px-10">
+    <section className="relative w-full pt-8 md:pt-13 pb-6 md:pb-8">
+      <div className="relative w-full max-w-[1280px] mx-auto px-4 md:px-10">
         {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-foreground text-2xl">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-foreground text-xl md:text-2xl">
             NeetCode Trusted by{' '}
             <span className="font-semibold">2M+</span> Users
           </h2>
@@ -31,7 +31,7 @@ export default function LogoMarquee() {
       {/* Logo Marquee */}
       <div className="relative w-full">
         <div className="relative w-full max-w-[1280px] mx-auto">
-          <div className="relative -mx-6 border-t border-border">
+          <div className="relative md:-mx-6 border-t border-border">
             <IntersectionDot position="left" verticalAlign="bottom" />
             <IntersectionDot position="right" verticalAlign="bottom" />
 
@@ -41,12 +41,12 @@ export default function LogoMarquee() {
                 {logos.map((logo, index) => (
                   <div
                     key={`logo-1-${index}`}
-                    className="flex items-center justify-center h-[100px] w-[256px] border-r border-border shrink-0"
+                    className="flex items-center justify-center h-[80px] md:h-[100px] w-[180px] md:w-[256px] border-r border-border shrink-0"
                   >
                     <img
                       src={logo}
                       alt="Company logo"
-                      className="h-12 w-auto"
+                      className="h-8 md:h-12 w-auto"
                       style={{
                         filter: logo === '/hero/openai.svg' ? 'var(--openai-filter)' : 'none'
                       }}
@@ -57,12 +57,12 @@ export default function LogoMarquee() {
                 {logos.map((logo, index) => (
                   <div
                     key={`logo-2-${index}`}
-                    className="flex items-center justify-center h-[100px] w-[256px] border-r border-border shrink-0"
+                    className="flex items-center justify-center h-[80px] md:h-[100px] w-[180px] md:w-[256px] border-r border-border shrink-0"
                   >
                     <img
                       src={logo}
                       alt="Company logo"
-                      className="h-12 w-auto"
+                      className="h-8 md:h-12 w-auto"
                       style={{
                         filter: logo === '/hero/openai.svg' ? 'var(--openai-filter)' : 'none'
                       }}

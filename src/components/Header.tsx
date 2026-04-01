@@ -41,7 +41,7 @@ export default function Header() {
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
       {/* Vertical lines for header */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <div className="w-full h-full px-10">
           <div className="max-w-[1280px] h-full mx-auto relative">
             <div className="absolute inset-y-0 -left-6 w-px bg-(--border-light)" />
@@ -50,27 +50,27 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="w-full px-10 py-6 flex items-center relative z-10">
-        <div className="w-full max-w-[1280px] mx-auto flex items-center justify-between">
+      <div className="w-full px-4 md:px-10 py-4 md:py-6 flex items-center relative z-10">
+        <div className="w-full max-w-[1280px] mx-auto flex items-center justify-between gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 cursor-pointer">
+          <Link href="/" className="flex items-center gap-2 md:gap-3 cursor-pointer">
             <img
               src="/leetcode.png"
               alt="NeetCode"
-              width={44}
-              height={44}
-              className="object-contain"
+              width={36}
+              height={36}
+              className="object-contain md:w-[44px] md:h-[44px]"
             />
-            <span className="text-foreground text-2xl font-semibold">NeetCode</span>
+            <span className="text-foreground text-xl md:text-2xl font-semibold">NeetCode</span>
           </Link>
 
           {/* Navigation */}
-          <nav className="flex items-center border border-(--border-light) rounded-lg px-6 py-2">
+          <nav className="hidden lg:flex items-center border border-(--border-light) rounded-lg px-4 xl:px-6 py-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 font-medium text-base cursor-pointer hover:text-primary transition-colors ${
+                className={`px-3 xl:px-4 py-2 font-medium text-sm xl:text-base cursor-pointer hover:text-primary transition-colors ${
                   link.isActive ? 'text-primary' : 'text-foreground'
                 }`}
               >
@@ -109,7 +109,7 @@ export default function Header() {
           <div className="flex items-center">
             <Link
               href="/get-started"
-              className="rounded-lg bg-linear-to-br from-orange-400 to-orange-600 px-5 py-2 text-sm font-semibold text-foreground ring-2 ring-[#fe5303]/50 ring-offset-2 ring-offset-background transition-all hover:scale-[1.02] hover:ring-transparent active:scale-[0.98] active:ring-[#fe5303]/70 cursor-pointer"
+              className="rounded-lg bg-linear-to-br from-orange-400 to-orange-600 px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold text-foreground ring-2 ring-[#fe5303]/50 ring-offset-2 ring-offset-background transition-all hover:scale-[1.02] hover:ring-transparent active:scale-[0.98] active:ring-[#fe5303]/70 cursor-pointer whitespace-nowrap"
             >
               Get Started
             </Link>
