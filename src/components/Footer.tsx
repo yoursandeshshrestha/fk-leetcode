@@ -93,7 +93,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-border pt-8">
+        <div className="border-t border-border md:border-none pt-8">
           <p className="text-(--text-secondary) text-sm text-center">
             Copyright © 2026 neetcode.io All rights reserved.
           </p>

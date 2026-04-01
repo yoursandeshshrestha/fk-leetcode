@@ -1,6 +1,6 @@
 'use client';
 
-import IntersectionDot from './ui/IntersectionDot';
+
 
 export default function LogoMarquee() {
   const logos = [
@@ -32,8 +32,7 @@ export default function LogoMarquee() {
       <div className="relative w-full">
         <div className="relative w-full max-w-[1280px] mx-auto">
           <div className="relative md:-mx-6 border-t border-border">
-            <IntersectionDot position="left" verticalAlign="bottom" />
-            <IntersectionDot position="right" verticalAlign="bottom" />
+           
 
             <div className="overflow-hidden">
               <div className="flex animate-marquee">

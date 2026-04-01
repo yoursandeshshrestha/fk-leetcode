@@ -23,11 +23,12 @@ export default function Testimonials() {
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:-mx-6 border-t border-border">
           {testimonials.map((testimonial, index) => {
             const isLeftColumn = index % 3 === 0;
-            const isBottomRow = index >= 3;
+            const lastRowStartIndex = Math.floor((testimonials.length - 1) / 3) * 3;
+            const isInLastRow = index >= lastRowStartIndex;
             return (
               <div
                 key={index}
-                className={`p-6 md:p-8 flex flex-col gap-3 md:gap-4 border-b md:border-b-0 ${!isLeftColumn ? 'md:border-l' : ''} ${!isBottomRow ? 'md:border-b' : ''} border-border last:border-b-0`}
+                className={`p-6 md:p-8 flex flex-col gap-3 md:gap-4 border-b ${!isLeftColumn ? 'md:border-l' : ''} ${!isInLastRow ? 'md:border-b' : 'md:border-b-0'} border-border last:border-b-0`}
               >
               {/* User Image or Initials */}
               <div className="w-12 h-12 rounded-full shrink-0 flex items-center justify-center bg-[#fe5303]/20 border border-[#fe5303]/50">

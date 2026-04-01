@@ -16,14 +16,14 @@ export default function IntersectionDot({
     : 'bottom-0 translate-y-1/2';
 
   return (
-    <div className={`absolute ${horizontalClasses} ${verticalClasses} z-10`}>
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="absolute w-2 h-px bg-[#fe5303] -left-4 top-1/2 -translate-y-1/2" />
-        <div className="absolute w-2 h-px bg-[#fe5303] -right-4 top-1/2 -translate-y-1/2" />
-        <div className="absolute w-px h-2 bg-[#fe5303] left-1/2 -translate-x-1/2 -top-4" />
-        <div className="absolute w-px h-2 bg-[#fe5303] left-1/2 -translate-x-1/2 -bottom-4" />
+    <div className={`absolute ${horizontalClasses} ${verticalClasses} z-50`}>
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
+        <div className="absolute w-2 h-px bg-[#fe5303] -left-4 top-1/2 -translate-y-1/2 z-50" />
+        <div className="absolute w-2 h-px bg-[#fe5303] -right-4 top-1/2 -translate-y-1/2 z-50" />
+        <div className="absolute w-px h-2 bg-[#fe5303] left-1/2 -translate-x-1/2 -top-4 z-50" />
+        <div className="absolute w-px h-2 bg-[#fe5303] left-1/2 -translate-x-1/2 -bottom-4 z-50" />
       </div>
-      <div className="w-1 h-1 rounded-full bg-[#fe5303]" />
+      <div className="w-1 h-1 rounded-full bg-[#fe5303] relative z-50" />
     </div>
   );
 }
