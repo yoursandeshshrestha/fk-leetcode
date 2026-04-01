@@ -12,11 +12,11 @@ export default function Founder() {
           <div className="relative flex flex-col lg:flex-row">
             {/* Left: Story - 60% */}
             <div className="w-full lg:w-[60%] p-12 flex flex-col justify-center gap-6">
-              <h2 className="text-white text-4xl font-bold">
+              <h2 className="text-foreground text-4xl font-bold">
                 Hi, I'm Navi
               </h2>
 
-              <div className="flex flex-col gap-4 text-white/70 text-base leading-relaxed">
+              <div className="flex flex-col gap-4 text-(--text-secondary) text-base leading-relaxed">
                 <p>
                   I created NeetCode in 2020 when I was unemployed and couldn't find a job.
                 </p>
@@ -33,7 +33,7 @@ export default function Founder() {
 
               {/* Previously at */}
               <div className="mt-4">
-                <p className="text-white/60 text-sm mb-4">Previously at</p>
+                <p className="text-(--text-secondary) text-sm mb-4">Previously at</p>
                 <div className="flex items-center gap-6">
                   <img
                     src={COMPANY_LOGOS.google}

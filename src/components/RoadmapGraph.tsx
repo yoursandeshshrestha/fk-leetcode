@@ -4,11 +4,11 @@ import ReactFlow from 'reactflow';
 import 'reactflow/dist/style.css';
 
 const nodeStyle = {
-  background: '#1e293b',
-  color: 'white',
+  background: 'var(--card-bg)',
+  color: 'var(--foreground)',
   padding: 10,
   borderRadius: 12,
-  border: '1px solid rgba(255, 255, 255, 0.1)',
+  border: '1px solid var(--border)',
   width: 180,
   textAlign: 'center' as const,
   fontSize: 14,

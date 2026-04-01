@@ -9,10 +9,10 @@ export default function Testimonials() {
       <div className="relative w-full max-w-[1280px] mx-auto px-10">
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-white text-4xl font-bold mb-4">
+          <h2 className="text-foreground text-4xl font-bold mb-4">
             Success Stories
           </h2>
-          <p className="text-white/60 text-lg">
+          <p className="text-(--text-secondary) text-lg">
             See how NeetCode helped engineers land their dream jobs
           </p>
         </div>
@@ -20,14 +20,14 @@ export default function Testimonials() {
 
       <div className="relative w-full max-w-[1280px] mx-auto">
         {/* Testimonials Grid with Borders */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -mx-6 border-t border-white/10">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -mx-6 border-t border-border">
           {testimonials.map((testimonial, index) => {
             const isLeftColumn = index % 3 === 0;
             const isBottomRow = index >= 3;
             return (
               <div
                 key={index}
-                className={`p-8 flex flex-col gap-4 ${!isLeftColumn ? 'border-l' : ''} ${!isBottomRow ? 'border-b' : ''} border-white/10`}
+                className={`p-8 flex flex-col gap-4 ${!isLeftColumn ? 'border-l' : ''} ${!isBottomRow ? 'border-b' : ''} border-border`}
               >
               {/* User Image or Initials */}
               <div className="w-12 h-12 rounded-full shrink-0 flex items-center justify-center bg-[#fe5303]/20 border border-[#fe5303]/50">
@@ -50,7 +50,7 @@ export default function Testimonials() {
 
               {/* Name and Company */}
               <div>
-                <h3 className="text-white text-xl font-semibold mb-1">
+                <h3 className="text-foreground text-xl font-semibold mb-1">
                   {testimonial.name}
                 </h3>
                 <div className="flex items-center gap-2">
@@ -58,15 +58,18 @@ export default function Testimonials() {
                     <img
                       src={testimonial.companyLogo}
                       alt={testimonial.company}
-                      className="h-4 w-auto brightness-0 invert opacity-60"
+                      className="h-4 w-auto"
+                      style={{
+                        filter: testimonial.companyLogo === '/hero/openai.svg' ? 'var(--openai-filter)' : 'none'
+                      }}
                     />
                   )}
-                  <span className="text-white/60 text-sm">{testimonial.company}</span>
+                  <span className="text-(--text-secondary) text-sm">{testimonial.company}</span>
                 </div>
               </div>
 
               {/* Quote */}
-              <p className="text-white/70 text-base leading-relaxed flex-1">
+              <p className="text-(--text-secondary) text-base leading-relaxed flex-1">
                 {testimonial.quote}
               </p>
             </div>

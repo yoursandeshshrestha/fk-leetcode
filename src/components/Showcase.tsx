@@ -17,7 +17,7 @@ export default function Showcase() {
 
         {/* Main Container with Roadmap */}
         <div className="relative max-w-5xl mx-auto">
-          <div className="relative aspect-video rounded-lg bg-[#0d0d14] border border-white/10 z-0">
+          <div className="relative aspect-video rounded-lg bg-background border border-border z-0">
             {/* Top Left Corner */}
             <div className="absolute -top-px -left-px -z-1">
               <div className="relative">

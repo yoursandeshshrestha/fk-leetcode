@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import PageLines from "@/components/PageLines";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -33,11 +34,13 @@ export default function RootLayout({
       lang="en"
       className={`${geistMono.variable} h-full antialiased overscroll-none`}
     >
-      <body className="min-h-full flex flex-col bg-[#0d0d14] relative overscroll-none">
-        <PageLines />
-        <Header />
-        {children}
-        <Footer />
+      <body className="min-h-full flex flex-col relative overscroll-none">
+        <ThemeProvider>
+          <PageLines />
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

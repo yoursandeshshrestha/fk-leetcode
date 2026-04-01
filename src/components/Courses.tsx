@@ -14,8 +14,8 @@ export default function Courses() {
       <div className="relative w-full max-w-[1280px] mx-auto px-10">
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-white text-4xl font-bold mb-4">Courses</h2>
-          <p className="text-white/60 text-lg">
+          <h2 className="text-foreground text-4xl font-bold mb-4">Courses</h2>
+          <p className="text-(--text-secondary) text-lg">
             Structured learning paths from fundamentals to advanced topics.
           </p>
         </div>
@@ -23,15 +23,15 @@ export default function Courses() {
 
       {/* Content Grid */}
       <div className="relative w-full max-w-[1280px] mx-auto">
-        <div className="relative -mx-6 border-t border-white/10">
+        <div className="relative -mx-6 border-t border-border">
           {courseCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="relative flex border-b border-white/10">
+            <div key={categoryIndex} className="relative flex border-b border-border">
               {/* Left: Category Description - 30% */}
               <div className="w-[30%] p-8 flex flex-col gap-4">
-                <h3 className="text-white text-2xl font-semibold">
+                <h3 className="text-foreground text-2xl font-semibold">
                   {category.title}
                 </h3>
-                <p className="text-white/70 text-base leading-relaxed">
+                <p className="text-(--text-secondary) text-base leading-relaxed">
                   {category.description}
                 </p>
               </div>
@@ -46,8 +46,8 @@ export default function Courses() {
                       key={courseIndex}
                       className={`border-l p-8 flex flex-col gap-4 cursor-pointer ${
                         isPython
-                          ? (isFirstRow ? 'border-b border-white/10' : 'border-white/10')
-                          : 'flex-1 border-white/10'
+                          ? (isFirstRow ? 'border-b border-border' : 'border-border')
+                          : 'flex-1 border-border'
                       }`}
                     >
                     {/* Course Image */}
@@ -61,10 +61,10 @@ export default function Courses() {
 
                     {/* Course Content */}
                     <div className="flex flex-col gap-3">
-                      <h3 className="text-white text-xl font-semibold">
+                      <h3 className="text-foreground text-xl font-semibold">
                         {course.title}
                       </h3>
-                      <p className="text-white/70 text-base leading-relaxed">
+                      <p className="text-(--text-secondary) text-base leading-relaxed">
                         {course.description}
                       </p>
 
@@ -72,7 +72,7 @@ export default function Courses() {
                       {(course.duration || course.difficulty) && (
                         <div className="flex items-center gap-4 text-sm">
                           {course.duration && (
-                            <span className="text-white/60">{course.duration}</span>
+                            <span className="text-(--text-secondary)">{course.duration}</span>
                           )}
                           {course.difficulty && (
                             <span className={getDifficultyColor(course.difficulty)}>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { NavLink } from '@/types';
+import { useTheme } from '@/providers/ThemeProvider';
 
 const navLinks: NavLink[] = [
   { label: 'Course', href: '/course' },
@@ -12,8 +13,7 @@ const navLinks: NavLink[] = [
 ];
 
 export default function Header() {
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const { theme, toggleTheme } = useTheme();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -37,15 +37,15 @@ export default function Header() {
   }, [lastScrollY]);
 
   return (
-    <header className={`sticky top-0 z-50 w-full bg-[#0d0d14] border-b border-white/8 transition-transform duration-300 ${
+    <header className={`sticky top-0 z-50 w-full bg-background border-b border-(--border-light) transition-transform duration-300 ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
       {/* Vertical lines for header */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="w-full h-full px-10">
           <div className="max-w-[1280px] h-full mx-auto relative">
-            <div className="absolute inset-y-0 -left-6 w-px bg-white/8" />
-            <div className="absolute inset-y-0 -right-6 w-px bg-white/8" />
+            <div className="absolute inset-y-0 -left-6 w-px bg-(--border-light)" />
+            <div className="absolute inset-y-0 -right-6 w-px bg-(--border-light)" />
           </div>
         </div>
       </div>
@@ -61,17 +61,17 @@ export default function Header() {
               height={44}
               className="object-contain"
             />
-            <span className="text-white text-2xl font-semibold">NeetCode</span>
+            <span className="text-foreground text-2xl font-semibold">NeetCode</span>
           </Link>
 
           {/* Navigation */}
-          <nav className="flex items-center border border-white/8 rounded-lg px-6 py-2">
+          <nav className="flex items-center border border-(--border-light) rounded-lg px-6 py-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 font-medium text-base cursor-pointer hover:text-[#fe5303] transition-colors ${
-                  link.isActive ? 'text-[#fe5303]' : 'text-white'
+                className={`px-4 py-2 font-medium text-base cursor-pointer hover:text-primary transition-colors ${
+                  link.isActive ? 'text-primary' : 'text-foreground'
                 }`}
               >
                 {link.label}
@@ -81,16 +81,17 @@ export default function Header() {
             {/* Theme Toggle */}
             <div className="flex items-center gap-2 ml-2">
               <button
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                className="relative w-[52px] h-[24px] bg-orange-950/50 rounded-full cursor-pointer transition-colors"
+                onClick={toggleTheme}
+                className="relative w-[52px] h-[24px] bg-gray-300 dark:bg-gray-700 rounded-full cursor-pointer transition-colors"
+                aria-label="Toggle theme"
               >
                 <div
                   className={`absolute top-0.5 w-5 h-5 bg-[#fe5303] rounded-full transition-transform duration-300 ease-out ${
-                    isDarkMode ? 'left-0.5' : 'left-[30px]'
+                    theme === 'dark' ? 'left-0.5' : 'left-[30px]'
                   }`}
                 />
               </button>
-              <div className="w-5 h-5 flex items-center justify-center cursor-pointer text-white">
+              <div className="w-5 h-5 flex items-center justify-center cursor-pointer text-foreground">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -108,7 +109,7 @@ export default function Header() {
           <div className="flex items-center">
             <Link
               href="/get-started"
-              className="rounded-lg bg-linear-to-br from-orange-400 to-orange-600 px-5 py-2 text-sm font-semibold text-white ring-2 ring-[#fe5303]/50 ring-offset-2 ring-offset-[#0d0d14] transition-all hover:scale-[1.02] hover:ring-transparent active:scale-[0.98] active:ring-[#fe5303]/70 cursor-pointer"
+              className="rounded-lg bg-linear-to-br from-orange-400 to-orange-600 px-5 py-2 text-sm font-semibold text-foreground ring-2 ring-[#fe5303]/50 ring-offset-2 ring-offset-background transition-all hover:scale-[1.02] hover:ring-transparent active:scale-[0.98] active:ring-[#fe5303]/70 cursor-pointer"
             >
               Get Started
             </Link>

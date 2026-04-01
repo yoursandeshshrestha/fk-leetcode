@@ -1,17 +1,47 @@
 @import "tailwindcss";
 
+/* Theme Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #0d0d14;
+  /* Light Mode */
+  --background: oklch(0.992 0.003 40);
+  --foreground: oklch(0.145 0 0);
+  --primary: #fe5303;
+  --border: oklch(0.88 0 0);
+  --border-light: oklch(0.94 0 0);
+  --text-secondary: oklch(0.556 0 0);
+  --card-bg: oklch(0.98 0 0);
+  --logo-filter: none;
+  --icon-filter: none;
+  --testimonial-logo-filter: none;
+  --testimonial-logo-opacity: 1;
+  --openai-filter: brightness(0);
+}
+
+.dark {
+  --background: #0d0d14;
+  --foreground: #ededed;
+  --primary: #fe5303;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-light: rgba(255, 255, 255, 0.08);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --logo-filter: none;
+  --icon-filter: brightness(0) invert(1);
+  --testimonial-logo-filter: none;
+  --testimonial-logo-opacity: 1;
+  --openai-filter: brightness(0) invert(1);
 }
 
 html {
   overscroll-behavior: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-mono);
 }
 
@@ -19,18 +49,12 @@ html {
   perspective: 1000px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0d0d14;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-mono), monospace;
   overscroll-behavior: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @keyframes marquee {
