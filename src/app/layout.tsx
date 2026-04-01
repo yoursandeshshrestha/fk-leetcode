@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   description: "Master coding interviews with NeetCode. Structured learning paths including Blind 75, NeetCode 150 & 250. Detailed video explanations for 1000+ problems. Trusted by 2M+ engineers at top tech companies.",
   keywords: ["coding interviews", "leetcode", "algorithms", "data structures", "system design", "interview preparation", "neetcode"],
   authors: [{ name: "NeetCode" }],
+  icons: {
+    icon: "/neetcode-logo.png",
+    shortcut: "/neetcode-logo.png",
+    apple: "/neetcode-logo.png",
+  },
   openGraph: {
     title: "NeetCode - A Better Way to Prepare for Coding Interviews",
     description: "Master coding interviews with structured learning paths and detailed video explanations. Trusted by 2M+ engineers.",

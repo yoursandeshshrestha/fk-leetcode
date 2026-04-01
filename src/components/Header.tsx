@@ -50,12 +50,12 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="w-full px-4 md:px-10 py-4 md:py-6 flex items-center relative z-10">
+      <div className="w-full px-4 md:px-10 py-3 md:py-4 flex items-center relative z-10">
         <div className="w-full max-w-[1280px] mx-auto flex items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 md:gap-3 cursor-pointer">
             <img
-              src="/leetcode.png"
+              src="/neetcode-logo.png"
               alt="NeetCode"
               width={36}
               height={36}
